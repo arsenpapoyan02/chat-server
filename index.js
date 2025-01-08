@@ -26,7 +26,7 @@ const io = new Server(httpServer, {
 });
 
 mongoose
-    .connect(`mongodb://100.20.92.101:${port}/crud`)
+    .connect(`mongodb://127.0.0.1:27017/crud`)
     .then(() => console.log("db is ok"))
     .catch(err => console.log('db error', err))
 
