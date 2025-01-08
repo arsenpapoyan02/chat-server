@@ -20,13 +20,13 @@ import { MessageController, UserController } from './controllers/index.js';
 const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: "https://arsenpapoyan02-realtime-chat.netlify.app",
         methods: ["GET", "POST", "DELETE"]
     }
 });
 
 mongoose
-    .connect('mongodb://0.0.0.0:27017/crud')
+    .connect(`mongodb://100.20.92.101:${port}/crud`)
     .then(() => console.log("db is ok"))
     .catch(err => console.log('db error', err))
 
