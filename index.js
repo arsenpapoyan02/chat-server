@@ -4,8 +4,9 @@ import cors from 'cors';
 import { Server } from 'socket.io';
 import http from 'http';
 
+import 'dotenv/config';
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT  || 5000;
 app.use(express.json());
 app.use(cors());
 
@@ -20,13 +21,13 @@ import { MessageController, UserController } from './controllers/index.js';
 const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
     cors: {
-        origin: "https://arsenpapoyan02-realtime-chat.netlify.app",
+        origin: "http://localhost:3000",
         methods: ["GET", "POST", "DELETE"]
     }
 });
 
 mongoose
-    .connect(`mongodb://127.0.0.1:27017/crud`)
+    .connect(process.env.MONGO_URI)
     .then(() => console.log("db is ok"))
     .catch(err => console.log('db error', err))
 
