@@ -21,7 +21,7 @@ import { MessageController, UserController } from './controllers/index.js';
 const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: "https://arsenpapoyan02-realtime-chat.netlify.app",
         methods: ["GET", "POST", "DELETE"]
     }
 });
